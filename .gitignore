@@ -98,3 +98,4 @@ workspace/
 .beads/daemon.*
 .beads/.local_version
 reports/
+marketplace/.firebase/

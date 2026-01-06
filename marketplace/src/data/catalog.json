@@ -1,15 +1,15 @@
 {
   "meta": {
     "version": "1.0.0",
-    "generated": "2025-12-29T20:56:34.209Z",
+    "generated": "2026-01-06T03:51:21.779Z",
     "source": "marketplace.extended.json",
     "generator": "scripts/sync-catalog.mjs"
   },
   "stats": {
-    "totalPlugins": 267,
-    "totalSkills": 104,
-    "totalCommands": 55,
-    "pluginsWithSkills": 28,
+    "totalPlugins": 270,
+    "totalSkills": 107,
+    "totalCommands": 58,
+    "pluginsWithSkills": 31,
     "byCategory": {
       "productivity": 13,
       "security": 27,
@@ -31,16 +31,16 @@
       "finance": 1,
       "code-quality": 1,
       "automation": 2,
-      "community": 1,
+      "community": 4,
       "development": 1
     },
     "byStatus": {
-      "active": 248,
+      "active": 251,
       "maintained": 19
     },
     "featured": 2,
-    "new": 246,
-    "generatedAt": "2025-12-29T20:56:34.209Z"
+    "new": 249,
+    "generatedAt": "2026-01-06T03:51:21.779Z"
   },
   "plugins": [
     {
@@ -8982,6 +8982,120 @@
         "name": "Jeremy Longshore",
         "email": "jeremy@intentsolutions.io",
         "url": "https://github.com/jeremylongshore"
+      },
+      "type": "instruction-plugin"
+    },
+    {
+      "slug": "claude-reflect",
+      "name": "claude-reflect",
+      "displayName": "claude reflect",
+      "description": "Self-learning system for Claude Code that captures corrections and updates CLAUDE.md automatically",
+      "version": "1.4.1",
+      "category": "community",
+      "keywords": [
+        "claude-code",
+        "self-learning",
+        "corrections",
+        "CLAUDE.md",
+        "memory",
+        "learnings",
+        "hooks",
+        "automation"
+      ],
+      "hasSkills": true,
+      "skillCount": 1,
+      "commandCount": 3,
+      "installCommand": "/plugin install claude-reflect",
+      "sourcePath": "./plugins/community/claude-reflect",
+      "lastUpdatedEpoch": 1767671481,
+      "lastUpdatedDate": "2026-01-06T03:51:21.779Z",
+      "status": "active",
+      "badges": [
+        "new"
+      ],
+      "isFeatured": false,
+      "isNew": true,
+      "author": {
+        "name": "Bayram Annakov",
+        "url": "https://github.com/bayramannakov"
+      },
+      "type": "instruction-plugin"
+    },
+    {
+      "slug": "gastown",
+      "name": "gastown",
+      "displayName": "gastown",
+      "description": "Multi-agent orchestrator for Claude Code. Track work with convoys, sling to polecats. The Cognition Engine for AI-powered software factories.",
+      "version": "1.0.0",
+      "category": "community",
+      "keywords": [
+        "multi-agent",
+        "orchestration",
+        "automation",
+        "polecats",
+        "convoys",
+        "beads",
+        "work-tracking",
+        "ai-factory",
+        "gastown",
+        "claude-code"
+      ],
+      "hasSkills": true,
+      "skillCount": 1,
+      "commandCount": 0,
+      "installCommand": "/plugin install gastown",
+      "sourcePath": "./plugins/community/gastown",
+      "lastUpdatedEpoch": 1767671481,
+      "lastUpdatedDate": "2026-01-06T03:51:21.779Z",
+      "status": "active",
+      "badges": [
+        "new"
+      ],
+      "isFeatured": false,
+      "isNew": true,
+      "author": {
+        "name": "Numman Ali",
+        "email": "numman.ali@gmail.com",
+        "url": "https://github.com/numman-ali"
+      },
+      "type": "instruction-plugin"
+    },
+    {
+      "slug": "zai-cli",
+      "name": "zai-cli",
+      "displayName": "zai cli",
+      "description": "Z.AI vision, search, reader, and GitHub exploration via CLI and MCP. Analyze images, search the web, read pages as markdown, explore repos.",
+      "version": "1.0.0",
+      "category": "community",
+      "keywords": [
+        "vision",
+        "image-analysis",
+        "ocr",
+        "web-search",
+        "web-reader",
+        "github",
+        "mcp",
+        "z-ai",
+        "glm-4",
+        "multimodal"
+      ],
+      "hasSkills": true,
+      "skillCount": 1,
+      "commandCount": 0,
+      "installCommand": "/plugin install zai-cli",
+      "sourcePath": "./plugins/community/zai-cli",
+      "lastUpdatedEpoch": 1767671481,
+      "lastUpdatedDate": "2026-01-06T03:51:21.779Z",
+      "status": "active",
+      "badges": [
+        "new"
+      ],
+      "isFeatured": false,
+      "isNew": true,
+      "author": {
+        "name": "Numman Ali",
+        "email": "numman.ali@gmail.com",
+        "url": "https://github.com/numman-ali"
       },
       "type": "instruction-plugin"
     }
