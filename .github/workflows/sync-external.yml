@@ -40,8 +40,13 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Install dependencies
-        run: npm install js-yaml
+        run: pnpm add js-yaml
 
       - name: Run sync script
         id: sync
@@ -74,7 +79,7 @@ jobs:
       - name: Sync marketplace catalog
         if: steps.changes.outputs.has_changes == 'true' && inputs.dry_run != true
         run: |
-          npm install
+          pnpm install --frozen-lockfile
           node scripts/sync-marketplace.cjs
 
       - name: Create Pull Request

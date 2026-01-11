@@ -126,8 +126,9 @@ jobs:
 
           # Check for private keys (critical - always fail)
           # Exclude README and SKILL files (documentation of patterns to look for)
-          # Exclude tests/, CHANGES.md, and security pattern definitions (redact.py)
-          PRIVATE_KEYS=$(grep -r "BEGIN.*PRIVATE KEY" plugins/ 2>/dev/null | grep -v "README.md" | grep -v "SKILL.md" | grep -v "Pattern:" | grep -v "/tests/" | grep -v "CHANGES.md" | grep -v "redact.py" || true)
+          # Exclude tests/, CHANGES.md, security pattern definitions (redact.py)
+          # Exclude audit/validator reference docs that describe security scanning patterns
+          PRIVATE_KEYS=$(grep -r "BEGIN.*PRIVATE KEY" plugins/ 2>/dev/null | grep -v "README.md" | grep -v "SKILL.md" | grep -v "Pattern:" | grep -v "/tests/" | grep -v "CHANGES.md" | grep -v "redact.py" | grep -v "plugin-auditor/references/" | grep -v "plugin-validator/references/" || true)
           if [ -n "$PRIVATE_KEYS" ]; then
             echo "❌ ERROR: Private key detected!"
             echo "$PRIVATE_KEYS"
