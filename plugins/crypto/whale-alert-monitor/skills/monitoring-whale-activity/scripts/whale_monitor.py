@@ -20,17 +20,14 @@ Usage:
 
 import argparse
 import sys
-from typing import Optional
 
-from whale_api import WhaleAlertClient, WhaleTransaction
+from whale_api import WhaleAlertClient
 from wallet_labels import WalletLabeler
-from price_service import PriceService
 from formatters import (
     format_whale_table,
     format_whale_alert,
     format_exchange_flow,
     format_watchlist,
-    format_transaction_detail,
     format_json,
 )
 

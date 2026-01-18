@@ -68,6 +68,7 @@ class WhaleAlertClient:
                 with open(self.cache_file) as f:
                     return json.load(f)
         except (json.JSONDecodeError, IOError):
+            # Cache is optional - start fresh if corrupted or unreadable
             pass
         return {}
 
@@ -77,6 +78,7 @@ class WhaleAlertClient:
             with open(self.cache_file, "w") as f:
                 json.dump(self._cache, f)
         except IOError:
+            # Cache write failures are non-fatal - continue without persistence
             pass
 
     def _is_cache_valid(self, key: str) -> bool:
@@ -359,7 +361,7 @@ def main():
     txs = client.get_transactions(min_value=1000000, limit=5)
 
     for tx in txs:
-        time_str = datetime.fromtimestamp(tx.timestamp).strftime("%H:%M:%S")
+        time_str = datetime.utcfromtimestamp(tx.timestamp).strftime("%H:%M:%S UTC")
         from_label = tx.from_owner or tx.from_address[:10] + "..."
         to_label = tx.to_owner or tx.to_address[:10] + "..."
         print(f"[{time_str}] {tx.amount:,.0f} {tx.symbol} (${tx.amount_usd:,.0f}) {from_label} → {to_label}")

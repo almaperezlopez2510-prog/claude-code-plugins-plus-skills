@@ -84,6 +84,7 @@ class PriceService:
                 with open(self.cache_file) as f:
                     return json.load(f)
         except (json.JSONDecodeError, IOError):
+            # Cache is optional - start fresh if corrupted or unreadable
             pass
         return {}
 
@@ -93,6 +94,7 @@ class PriceService:
             with open(self.cache_file, "w") as f:
                 json.dump(self._cache, f)
         except IOError:
+            # Cache write failures are non-fatal - continue without persistence
             pass
 
     def _is_cache_valid(self, key: str) -> bool:
@@ -116,6 +118,10 @@ class PriceService:
 
     def get_price(self, symbol: str, vs_currency: str = "usd") -> Optional[float]:
         """Get current price for a cryptocurrency.
+
+        Note: This returns the CURRENT market price, not historical price at
+        transaction time. For accurate historical valuations, consider using
+        a historical price API endpoint (not implemented yet).
 
         Args:
             symbol: Token symbol (BTC, ETH, etc.)

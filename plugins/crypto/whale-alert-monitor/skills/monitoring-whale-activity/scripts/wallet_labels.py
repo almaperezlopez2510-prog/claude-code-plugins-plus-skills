@@ -187,6 +187,7 @@ class WalletLabeler:
                         tags=info.get("tags", []),
                     )
         except (IOError, json.JSONDecodeError):
+            # Custom labels file is optional - continue with built-in labels only
             pass
 
     def _load_watchlist(self) -> None:
@@ -205,6 +206,7 @@ class WalletLabeler:
                             notes=info.get("notes"),
                         )
         except (IOError, json.JSONDecodeError):
+            # Watchlist is user-created - start empty if missing or corrupted
             pass
 
     def _save_watchlist(self) -> None:
@@ -216,6 +218,7 @@ class WalletLabeler:
             with open(self.watchlist_file, "w") as f:
                 json.dump(data, f, indent=2)
         except IOError:
+            # Watchlist save failures are non-fatal - changes may be lost on restart
             pass
 
     def label_wallet(self, address: str, chain: str = "ethereum") -> WalletLabel:

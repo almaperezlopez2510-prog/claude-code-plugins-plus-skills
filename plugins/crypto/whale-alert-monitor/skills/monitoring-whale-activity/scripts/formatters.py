@@ -45,8 +45,11 @@ def format_address(address: str, length: int = 12) -> str:
 
 
 def format_time_ago(timestamp: int) -> str:
-    """Format timestamp as relative time."""
-    now = datetime.now().timestamp()
+    """Format timestamp as relative time.
+
+    Note: Uses UTC time for consistency across timezones.
+    """
+    now = datetime.utcnow().timestamp()
     diff = now - timestamp
 
     if diff < 60:
@@ -60,8 +63,8 @@ def format_time_ago(timestamp: int) -> str:
 
 
 def format_timestamp(timestamp: int) -> str:
-    """Format timestamp as datetime string."""
-    return datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S")
+    """Format timestamp as UTC datetime string."""
+    return datetime.utcfromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
 def format_whale_table(transactions: List[Any], show_addresses: bool = False) -> str:
