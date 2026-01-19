@@ -73,6 +73,9 @@ const { title, description = "Browse 244 searchable agent skills and 259 plugins
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
+        /* Import Fira Code font */
+        @import url('https://cdn.jsdelivr.net/npm/firacode@latest/distr/fira_code.css');
+
         /* ========================================
            ANTHROPIC OFFICIAL BRAND COLORS
            ======================================== */
@@ -117,10 +120,25 @@ const { title, description = "Browse 244 searchable agent skills and 259 plugins
             font-family: 'Poppins', Arial, sans-serif;
         }
 
+        /* Fira Code for code elements */
+        pre, code, .code, .monospace,
+        pre *, code *,
+        [class*="language-"], [class*="lang-"] {
+            font-family: 'Fira Code', 'Courier New', monospace !important;
+        }
+
+        @supports (font-variation-settings: normal) {
+            pre, code, .code, .monospace,
+            pre *, code *,
+            [class*="language-"], [class*="lang-"] {
+                font-family: 'Fira Code VF', 'Courier New', monospace !important;
+            }
+        }
+
         /* Navigation */
         nav {
             position: fixed;
-            top: 36px; /* Account for top banner */
+            top: 0;
             width: 100%;
             padding: 1.5rem 4rem;
             display: flex;
@@ -128,34 +146,6 @@ const { title, description = "Browse 244 searchable agent skills and 259 plugins
             align-items: center;
             z-index: 100;
             background: linear-gradient(to bottom, var(--brand-light) 0%, transparent 100%);
-        }
-
-        /* Top Banner */
-        .top-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 101;
-            background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-orange-dark) 100%);
-            color: white;
-            text-align: center;
-            padding: 0.6rem 1rem;
-            font-family: 'Poppins', Arial, sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .top-banner a {
-            color: white;
-            text-decoration: underline;
-            font-weight: 600;
-            margin-left: 0.5rem;
-            transition: opacity 0.3s var(--transition-smooth);
-        }
-
-        .top-banner a:hover {
-            opacity: 0.85;
         }
 
         .logo {
@@ -168,24 +158,6 @@ const { title, description = "Browse 244 searchable agent skills and 259 plugins
             color: var(--brand-dark);
             text-decoration: none;
             font-family: 'Poppins', Arial, sans-serif;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-
-        .logo-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .logo-subtitle {
-            font-size: 0.65rem;
-            font-weight: 400;
-            color: var(--brand-mid-gray);
-            letter-spacing: 0.02em;
         }
 
         .logo-icon {
@@ -251,8 +223,8 @@ const { title, description = "Browse 244 searchable agent skills and 259 plugins
 
         /* Main Content */
         main {
-            padding-top: 116px; /* 36px banner + 80px nav */
-            min-height: calc(100vh - 116px);
+            padding-top: 80px;
+            min-height: calc(100vh - 80px);
         }
 
         /* Footer */
@@ -363,22 +335,7 @@ const { title, description = "Browse 244 searchable agent skills and 259 plugins
             }
 
             main {
-                padding-top: 106px; /* 36px banner + 70px nav on mobile */
-            }
-
-            .top-banner {
-                font-size: 0.7rem;
-                padding: 0.5rem 1rem;
-                line-height: 1.4;
-            }
-
-            .top-banner a {
-                display: inline;
-                margin-left: 0.25rem;
-            }
-
-            .logo-subtitle {
-                display: none; /* Hide on mobile for cleaner look */
+                padding-top: 70px;
             }
 
             .footer-content {
@@ -393,20 +350,11 @@ const { title, description = "Browse 244 searchable agent skills and 259 plugins
     </style>
 </head>
 <body>
-    <!-- Top Banner -->
-    <div class="top-banner">
-        📅 let's chat! explore the endless possibilities creating industries that don't exist.
-        <a href="https://calendar.app.google/Dj5qDi9oQjDzGkcq8" target="_blank" rel="noopener">click here</a>
-    </div>
-
     <!-- Navigation -->
     <nav>
         <a href="/" class="logo">
             <div class="logo-icon">⌘</div>
-            <div class="logo-text">
-                <span class="logo-title">Claude Code Skills</span>
-                <span class="logo-subtitle">by intent solutions io</span>
-            </div>
+            Claude Code Skills
         </a>
         <button class="mobile-menu-toggle" aria-label="Toggle menu">
             <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
